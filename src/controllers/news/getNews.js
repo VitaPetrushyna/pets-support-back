@@ -3,7 +3,7 @@ const { News } = require('../../models');
 const { errorValidation } = require('../../helpers');
 
 const getNews = async (req, res) => {
-  const { page = 1, limit = 6 } = req.query;
+  const { page = 1, limit = 10 } = req.query;
   const skip = (page - 1) * limit;
 
   const news = await News.find().skip(skip).limit(limit);
